@@ -9,28 +9,21 @@ namespace listaNombres
         private int edad;
         private int seccion;
         private string asignatura;
-        private ArrayList notas = new ArrayList();
+        private double nota; 
 
-        public Alumno(string rut, string nombre, int edad, int seccion, string asignatura)
+        public Alumno(string rut, string nombre, int edad, int seccion, string asignatura, double nota)
         {
             this.rut = rut;
             this.nombre = nombre;
             this.edad = edad;
             this.seccion = seccion;
             this.asignatura = asignatura;
+            this.nota = nota;
         }
 
         public Alumno()
         {
 
-        }
-
-        public void llenaNotas(double[] notasarr)
-        {
-            foreach (double nota in notasarr)
-            {
-                notas.Add(nota);
-            }
         }
 
         public string Rut
@@ -63,10 +56,10 @@ namespace listaNombres
             set => asignatura = value;
         }
 
-        public ArrayList Notas
+        public double Nota
         {
-            get => notas;
-            set => notas = value;
+            get => nota;
+            set => nota = value;
         }
     }
 }

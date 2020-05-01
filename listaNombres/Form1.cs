@@ -29,8 +29,9 @@ namespace listaNombres
             int edadalumno = Int32.Parse(edadAlum.Text);
             int seccionalumno = Int32.Parse(seccionAlum.Text);
             string asignaturaalumno = asignaturaAlumn.Text;
+            double nota = Double.Parse(notaAlum.Text);
 
-            Alumno alumno = new Alumno(rutalumno,nombrealumno, edadalumno, seccionalumno, asignaturaalumno);
+            Alumno alumno = new Alumno(rutalumno,nombrealumno, edadalumno, seccionalumno, asignaturaalumno, nota);
             curso.Add(alumno);
             MessageBox.Show("Ingresado, Total en la lista: " + curso.Count);
             nombreAlumn.Text = "";
@@ -66,47 +67,31 @@ namespace listaNombres
         private void buscar_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
-            foreach(Alumno alumno in curso)
-            {
-                foreach (var c in Controls)
-                {
-                    if(c is TextBox)
-                    {
-                        TextBox t = (TextBox)c ;
-                        if(t.Text != "")
-                        {
-                            string data = t.Name;
-                            string termino = t.Text;
-                            search(data, termino);
-                            mostrar();
-                        }
-                    }
-                }
+            string termino = nombreAlumn.Text;
 
-            }
-        }
-
-        public Alumno search( string data, string termino )
-        {
-            Alumno encontrado = new Alumno();
             foreach (Alumno alumno in curso)
             {
-                if(data == alumno.Rut)
+                if(termino == alumno.Nombre)
                 {
-                    encontrado = new Alumno(alumno.Rut, alumno.Nombre, alumno.Edad, alumno.Seccion ,alumno.Asignatura);
-                }
-                else if(data == alumno.Nombre)
-                {
-                    encontrado = new Alumno(alumno.Rut, alumno.Nombre, alumno.Edad, alumno.Seccion, alumno.Asignatura);
-                }
-                else if( data == alumno.Seccion.ToString())
-                {
-                    encontrado = new Alumno(alumno.Rut, alumno.Nombre, alumno.Edad, alumno.Seccion, alumno.Asignatura);
-                }
+                    Alumno encontrado = new Alumno(alumno.Rut, alumno.Nombre, alumno.Edad, alumno.Seccion, alumno.Asignatura, alumno.Nota);
+                    ListViewItem al = new ListViewItem(encontrado.Nombre);
+                    al.SubItems.Add(encontrado.Nombre);
+                    al.SubItems.Add(encontrado.Edad.ToString());
+                    al.SubItems.Add(encontrado.Seccion.ToString());
+                    al.SubItems.Add(encontrado.Asignatura);
+                    al.SubItems.Add(encontrado.Nota.ToString());
 
+
+                    listView1.Items.Add(al);
+                    MessageBox.Show("Alumno: " + encontrado.Nombre + " En la posicion :" + curso.IndexOf(encontrado.Nombre));
+                }
+                else
+                {
+                    MessageBox.Show("Alumno no encontrado");
+                }
             }
-
-            return encontrado;
+           
         }
+
     }
 }

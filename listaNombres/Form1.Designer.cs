@@ -36,9 +36,8 @@
             this.Edad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Seccion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Asignatura = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nota = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buscar = new System.Windows.Forms.Button();
-            this.eliminar = new System.Windows.Forms.Button();
-            this.limpiar = new System.Windows.Forms.Button();
             this.ingresa = new System.Windows.Forms.Button();
             this.label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@
             this.seccionAlum = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.asignaturaAlumn = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.notaAlum = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -76,12 +77,13 @@
             this.Nombre,
             this.Edad,
             this.Seccion,
-            this.Asignatura});
+            this.Asignatura,
+            this.nota});
             this.listView1.ForeColor = System.Drawing.SystemColors.Menu;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(25, 294);
+            this.listView1.Location = new System.Drawing.Point(12, 280);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(419, 321);
+            this.listView1.Size = new System.Drawing.Size(457, 344);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -89,31 +91,36 @@
             // RUT
             // 
             this.RUT.Text = "RUT";
-            this.RUT.Width = 83;
+            this.RUT.Width = 76;
             // 
             // Nombre
             // 
             this.Nombre.Text = "Nombre";
-            this.Nombre.Width = 83;
+            this.Nombre.Width = 76;
             // 
             // Edad
             // 
             this.Edad.Text = "Edad";
-            this.Edad.Width = 83;
+            this.Edad.Width = 76;
             // 
             // Seccion
             // 
             this.Seccion.Text = "Seccion";
-            this.Seccion.Width = 83;
+            this.Seccion.Width = 76;
             // 
             // Asignatura
             // 
             this.Asignatura.Text = "Asignatura";
-            this.Asignatura.Width = 83;
+            this.Asignatura.Width = 76;
+            // 
+            // nota
+            // 
+            this.nota.Text = "Nota";
+            this.nota.Width = 76;
             // 
             // buscar
             // 
-            this.buscar.Location = new System.Drawing.Point(53, 251);
+            this.buscar.Location = new System.Drawing.Point(213, 237);
             this.buscar.Name = "buscar";
             this.buscar.Size = new System.Drawing.Size(75, 23);
             this.buscar.TabIndex = 4;
@@ -121,28 +128,9 @@
             this.buscar.UseVisualStyleBackColor = true;
             this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
-            // eliminar
-            // 
-            this.eliminar.Location = new System.Drawing.Point(177, 251);
-            this.eliminar.Name = "eliminar";
-            this.eliminar.Size = new System.Drawing.Size(75, 23);
-            this.eliminar.TabIndex = 5;
-            this.eliminar.Text = "Eliminar";
-            this.eliminar.UseVisualStyleBackColor = true;
-            this.eliminar.Click += new System.EventHandler(this.eliminar_Click);
-            // 
-            // limpiar
-            // 
-            this.limpiar.Location = new System.Drawing.Point(306, 251);
-            this.limpiar.Name = "limpiar";
-            this.limpiar.Size = new System.Drawing.Size(75, 23);
-            this.limpiar.TabIndex = 6;
-            this.limpiar.Text = "Limpiar";
-            this.limpiar.UseVisualStyleBackColor = true;
-            // 
             // ingresa
             // 
-            this.ingresa.Location = new System.Drawing.Point(105, 192);
+            this.ingresa.Location = new System.Drawing.Point(83, 237);
             this.ingresa.Name = "ingresa";
             this.ingresa.Size = new System.Drawing.Size(75, 23);
             this.ingresa.TabIndex = 7;
@@ -221,12 +209,32 @@
             this.asignaturaAlumn.Size = new System.Drawing.Size(192, 20);
             this.asignaturaAlumn.TabIndex = 15;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(25, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Nota";
+            // 
+            // notaAlum
+            // 
+            this.notaAlum.Location = new System.Drawing.Point(105, 183);
+            this.notaAlum.MaxLength = 2;
+            this.notaAlum.Name = "notaAlum";
+            this.notaAlum.Size = new System.Drawing.Size(32, 20);
+            this.notaAlum.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(455, 627);
+            this.ClientSize = new System.Drawing.Size(481, 657);
+            this.Controls.Add(this.notaAlum);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.asignaturaAlumn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.seccionAlum);
@@ -236,8 +244,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label);
             this.Controls.Add(this.ingresa);
-            this.Controls.Add(this.limpiar);
-            this.Controls.Add(this.eliminar);
             this.Controls.Add(this.buscar);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.nombreAlumn);
@@ -255,8 +261,6 @@
         private System.Windows.Forms.TextBox nombreAlumn;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button buscar;
-        private System.Windows.Forms.Button eliminar;
-        private System.Windows.Forms.Button limpiar;
         private System.Windows.Forms.Button ingresa;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label2;
@@ -271,6 +275,9 @@
         private System.Windows.Forms.ColumnHeader Edad;
         private System.Windows.Forms.ColumnHeader Seccion;
         private System.Windows.Forms.ColumnHeader Asignatura;
+        private System.Windows.Forms.ColumnHeader nota;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox notaAlum;
     }
 }
 
