@@ -20,6 +20,11 @@ namespace listaNombres
             this.asignatura = asignatura;
         }
 
+        public Alumno()
+        {
+
+        }
+
         public void llenaNotas(double[] notasarr)
         {
             foreach (double nota in notasarr)
